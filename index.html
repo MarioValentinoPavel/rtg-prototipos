@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reescribe tu Guion · Prototipos</title>
+<meta name="description" content="Tres prototipos de landing para Reescribe tu Guion (M.V.P).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0b0d0c;color:#eafff8;font-family:Inter,system-ui,sans-serif;min-height:100vh;padding:clamp(40px,6vw,80px) clamp(16px,4vw,60px)}
+  a{color:inherit;text-decoration:none}
+  h1{font-family:Unbounded,sans-serif;font-weight:900;font-size:clamp(34px,5vw,64px);line-height:1;letter-spacing:-.02em}
+  h1 span{color:#22b99a}
+  .sub{color:rgba(234,255,248,.6);margin:16px 0 50px;max-width:620px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{position:relative;border-radius:22px;padding:28px;min-height:360px;display:flex;flex-direction:column;justify-content:flex-end;gap:10px;overflow:hidden;transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
+  .card:hover{transform:translateY(-8px) rotate(-1deg)}
+  .card b{font-family:Unbounded,sans-serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;opacity:.7}
+  .card h2{font-family:Unbounded,sans-serif;font-weight:900;font-size:clamp(26px,2.6vw,38px);line-height:1}
+  .card p{font-size:15px;opacity:.8}
+  .card i{position:absolute;top:24px;right:24px;font-style:normal;font-size:26px;transition:transform .4s}
+  .card:hover i{transform:translate(4px,-4px)}
+  .c1{background:radial-gradient(circle at 20% 20%,rgba(34,185,154,.45),transparent 50%),#050807;border:1px solid rgba(34,185,154,.35)}
+  .c1::before{content:"";position:absolute;left:30px;top:30px;bottom:120px;width:3px;background:linear-gradient(#7dffd9,#22b99a);box-shadow:0 0 16px #22b99a;border-radius:3px}
+  .c2{background:linear-gradient(160deg,#ffffff,#dff6ef);color:#0f2a24}
+  .c2::before{content:"🌱";position:absolute;left:28px;top:26px;font-size:54px}
+  .c3{background:#000;border:1px solid rgba(92,255,207,.3);background-image:radial-gradient(rgba(92,255,207,.55) 1px,transparent 1.5px);background-size:14px 14px}
+  .c3 h2{color:#5cffcf;text-shadow:0 0 20px rgba(92,255,207,.6)}
+  .orig{display:inline-block;margin-top:40px;color:rgba(234,255,248,.6);border-bottom:1px solid currentColor;font-size:15px}
+  @media (max-width:900px){.grid{grid-template-columns:1fr}.card{min-height:240px}}
+</style>
+</head>
+<body>
+  <h1>Reescribe tu Guion <span>· 3 prototipos</span></h1>
+  <p class="sub">Mismo contenido (vídeo gratis, los 3 actos, quién soy y test que envía el resultado por WhatsApp), tres formas de contarlo.</p>
+  <div class="grid">
+    <a class="card c1" href="camino/"><i>↗</i><b>01 · Negro y verde</b><h2>El camino</h2><p>Una línea de luz se dibuja al hacer scroll y enciende cada hito hasta tu destino: el test.</p></a>
+    <a class="card c2" href="brote/"><i>↗</i><b>02 · Blanco y verde</b><h2>Brote</h2><p>Una semilla crece con el scroll, echa hojas en cada acto y florece al llegar al test.</p></a>
+    <a class="card c3" href="impacto/"><i>↗</i><b>03 · La sorpresa</b><h2>Impacto</h2><p>Terminal que reescribe tu guion y miles de partículas 3D que siguen al ratón y se transforman.</p></a>
+  </div>
+  <a class="orig" href="https://mariovalentinopavel.github.io/rtg-landing/">Ver la landing original (guion de cine) ↗</a>
+</body>
+</html>
