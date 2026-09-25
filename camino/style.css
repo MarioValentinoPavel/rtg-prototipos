@@ -65,7 +65,7 @@ body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(
 .stop--end .node{left:50%;top:70px}
 
 .tag{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--green);font-weight:600}
-.h1{font-family:var(--f-head);font-weight:800;font-size:clamp(40px,6.4vw,92px);line-height:1.02;letter-spacing:-.03em}
+.h1{font-family:var(--f-head);font-weight:800;font-size:clamp(34px,5vw,76px);line-height:1.02;letter-spacing:-.03em}
 .h1 .w{display:inline-block;opacity:0;filter:blur(10px);transform:translateY(20px)}
 .h2{font-family:var(--f-head);font-weight:800;font-size:clamp(30px,3.6vw,52px);line-height:1.05;letter-spacing:-.02em}
 .lead{font-size:clamp(17px,1.5vw,20px);color:var(--muted);max-width:620px}
@@ -133,3 +133,56 @@ b{color:var(--neon);font-weight:600}
   .h1 .w{opacity:1;filter:none;transform:none}
   *{animation:none!important}
 }
+
+/* =========================================================
+   v2 · más impacto
+   ========================================================= */
+/* suelo synthwave que avanza con el scroll */
+.floor{position:fixed;left:0;right:0;bottom:0;height:46vh;perspective:300px;perspective-origin:50% 0;overflow:hidden;pointer-events:none;z-index:0;-webkit-mask-image:linear-gradient(transparent,#000 45%);mask-image:linear-gradient(transparent,#000 45%)}
+.floor__plane{position:absolute;left:-60%;right:-60%;top:0;height:260%;transform-origin:50% 0;transform:rotateX(64deg);background-image:linear-gradient(rgba(34,185,154,.6) 1.5px,transparent 1.5px),linear-gradient(90deg,rgba(34,185,154,.6) 1.5px,transparent 1.5px);background-size:70px 70px;background-position:0 var(--gy,0px);filter:drop-shadow(0 0 6px rgba(34,185,154,.8))}
+.floor__sun{position:absolute;left:50%;top:-22vh;width:min(70vw,720px);aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(125,255,217,.35),rgba(34,185,154,.12) 45%,transparent 70%);filter:blur(10px)}
+
+/* linterna que sigue al ratón */
+.torch{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(circle 260px at var(--mx,50%) var(--my,40%),rgba(34,185,154,.16),transparent 70%)}
+
+/* láser de la portada */
+.laser{position:fixed;left:0;right:0;top:0;height:2px;z-index:150;background:linear-gradient(90deg,transparent,var(--neon),#fff,var(--neon),transparent);box-shadow:0 0 20px var(--neon),0 0 60px var(--green);opacity:0;pointer-events:none}
+
+.h1 .ch{display:inline-block;opacity:.08;text-shadow:none;transition:none}
+.h1 .ch.on{opacity:1;text-shadow:0 0 18px rgba(125,255,217,.55),0 0 40px rgba(34,185,154,.35)}
+.strike{position:relative;display:inline-block;color:rgba(230,244,239,.35)}
+.strike__old{opacity:0}
+.strike__beam{position:absolute;left:-2%;top:52%;height:6px;width:104%;background:var(--neon);box-shadow:0 0 14px var(--neon),0 0 40px var(--green);border-radius:4px;transform:scaleX(0);transform-origin:left}
+.rewrite{display:inline-block;margin-left:.25em;color:var(--neon);text-shadow:0 0 20px var(--neon),0 0 60px var(--green);opacity:0;transform:scale(2.4);filter:blur(12px)}
+
+/* aviso de checkpoint */
+.toast{position:fixed;left:50%;top:84px;z-index:120;display:flex;align-items:center;gap:14px;padding:12px 22px;border-radius:999px;background:rgba(5,8,7,.85);backdrop-filter:blur(10px);border:1px solid var(--neon);box-shadow:0 0 30px rgba(34,185,154,.5);transform:translate(-50%,-200px);font-family:var(--f-head);white-space:nowrap}
+.toast__k{color:var(--neon);font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.toast__t{font-weight:800;font-size:15px}
+
+/* onda expansiva en cada hito */
+.shock{position:absolute;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;border:3px solid var(--neon);box-shadow:0 0 30px var(--neon),inset 0 0 30px var(--green);pointer-events:none;z-index:1}
+
+/* altímetro lateral */
+.alti{position:fixed;left:22px;top:50%;transform:translateY(-50%);z-index:40;height:52vh;display:flex;flex-direction:column;align-items:center;gap:10px}
+.alti__bar{position:relative;width:3px;flex:1;background:rgba(34,185,154,.18);border-radius:3px;overflow:hidden}
+.alti__fill{position:absolute;left:0;right:0;bottom:0;height:0;background:linear-gradient(var(--neon),var(--green));box-shadow:0 0 12px var(--neon)}
+.alti__ticks{position:absolute;top:0;bottom:30px;left:-5px;width:13px}
+.alti__ticks i{position:absolute;left:0;width:13px;height:2px;background:rgba(34,185,154,.4);transition:background .3s,box-shadow .3s}
+.alti__ticks i.on{background:var(--neon);box-shadow:0 0 8px var(--neon)}
+.alti__n{font-family:var(--f-head);font-size:11px;color:var(--neon);letter-spacing:.1em;white-space:nowrap}
+
+/* título que se descifra */
+.scr{color:var(--neon)}
+
+@media (max-width:820px){
+  .alti{display:none}
+  .floor{height:34vh}
+  .toast{top:74px;padding:10px 16px}
+  .toast__t{font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){
+  .h1 .ch{opacity:1}.strike__old{opacity:1}.rewrite{opacity:1;transform:none;filter:none}
+}
+.h1 .wd{display:inline-block;white-space:nowrap}
+.stop--hero .stop__body{width:min(1000px,100%)}

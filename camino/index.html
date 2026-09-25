@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=1">
+<link rel="stylesheet" href="style.css?v=2">
 </head>
 <body class="is-loading">
 
@@ -19,7 +19,12 @@
   <p class="loader__txt">Tu camino empieza aquí</p>
 </div>
 
+<div class="floor" aria-hidden="true"><div class="floor__sun"></div><div class="floor__plane"></div></div>
 <canvas class="fireflies" aria-hidden="true"></canvas>
+<div class="torch" aria-hidden="true"></div>
+<div class="laser" aria-hidden="true"></div>
+<div class="toast" role="status" aria-live="polite"><b class="toast__k">✓ Checkpoint</b><span class="toast__t"></span></div>
+<aside class="alti" aria-hidden="true"><div class="alti__bar"><span class="alti__fill"></span></div><div class="alti__ticks"></div><p class="alti__n"><span class="js-alti">0</span> m</p></aside>
 
 <header class="top">
   <a href="#inicio" class="top__logo">M.V.P<small>Reescribe tu Guion</small></a>
@@ -43,7 +48,7 @@
     <span class="node" data-label="Tú, hoy"></span>
     <div class="stop__body">
       <p class="tag">Punto de partida</p>
-      <h1 class="h1 js-words">Llevas años recitando un guion que escribió otra persona.</h1>
+      <h1 class="h1"><span class="js-neon">Llevas años recitando un guion que escribió</span> <span class="strike"><span class="strike__old">otra persona</span><i class="strike__beam"></i></span><span class="rewrite">tú.</span></h1>
       <p class="lead">Reescribe tu Guion es la formación de Mario Valentino Pavel para dejar de improvisar la vida de otro y empezar a dirigir la tuya.</p>
       <div class="ctas"><a href="#video" class="btn">Empieza el camino ↓</a><a href="#destino" class="btn btn--ghost">Ir al test</a></div>
     </div>
@@ -134,6 +139,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="../common/quiz.js?v=1"></script>
-<script src="main.js?v=1"></script>
+<script src="main.js?v=2"></script>
 </body>
 </html>

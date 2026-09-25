@@ -118,3 +118,41 @@ h2{font-size:clamp(28px,3.6vw,54px);margin:10px 0 20px}
   .quiz__opts{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important}.scan{display:none}}
+
+/* =========================================================
+   v2 · más impacto
+   ========================================================= */
+/* encendido de pantalla CRT */
+.crt{position:fixed;inset:0;z-index:250;pointer-events:none;background:#000;display:none}
+.crt i{position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;background:#fff;box-shadow:0 0 40px #fff,0 0 90px var(--neon);transform:scaleX(0)}
+.crt.is-on{display:block}
+
+/* mira que sustituye al cursor */
+@media (hover:hover) and (pointer:fine){
+  html,body,a,button,input{cursor:none}
+  .reticle{position:fixed;left:0;top:0;z-index:400;width:46px;height:46px;margin:-23px 0 0 -23px;pointer-events:none;border:1px solid rgba(92,255,207,.7);border-radius:50%;transition:width .3s,height .3s,margin .3s,border-color .3s,background .3s}
+  .reticle::before,.reticle::after{content:"";position:absolute;background:var(--neon)}
+  .reticle::before{left:50%;top:-10px;bottom:-10px;width:1px;transform:translateX(-50%);-webkit-mask:linear-gradient(#000 0 10px,transparent 10px calc(100% - 10px),#000 0);mask:linear-gradient(#000 0 10px,transparent 10px calc(100% - 10px),#000 0)}
+  .reticle::after{top:50%;left:-10px;right:-10px;height:1px;transform:translateY(-50%);-webkit-mask:linear-gradient(90deg,#000 0 10px,transparent 10px calc(100% - 10px),#000 0);mask:linear-gradient(90deg,#000 0 10px,transparent 10px calc(100% - 10px),#000 0)}
+  .reticle i{position:absolute;left:50%;top:50%;width:4px;height:4px;margin:-2px;border-radius:50%;background:var(--neon);box-shadow:0 0 8px var(--neon)}
+  .reticle__xy{position:absolute;left:34px;top:30px;font-family:var(--f-mono);font-size:10px;color:var(--neon);white-space:nowrap;opacity:.8}
+  .reticle.is-hover{width:70px;height:70px;margin:-35px 0 0 -35px;border-color:var(--pink);background:rgba(255,46,136,.08)}
+  .reticle.is-hold{width:18px;height:18px;margin:-9px 0 0 -9px;border-color:#fff;background:rgba(92,255,207,.35)}
+}
+@media (hover:none),(pointer:coarse){.reticle{display:none}}
+
+/* pista de interacción */
+.hold-hint{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:45;display:flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:12px;color:var(--muted);padding:8px 14px;border:1px solid rgba(92,255,207,.25);background:rgba(0,0,0,.5);backdrop-filter:blur(6px);white-space:nowrap}
+.hold-hint b{color:var(--neon);font-weight:700}
+.hold-hint__ring{width:14px;height:14px;border-radius:50%;border:2px solid var(--neon);animation:holdp 1.6s infinite}
+@keyframes holdp{50%{transform:scale(.55);background:var(--neon)}}
+
+/* títulos: sacudida glitch al entrar */
+h2.is-jolt{animation:jolt .45s steps(2) 1}
+@keyframes jolt{0%{transform:translate(0);clip-path:inset(0)}20%{transform:translate(-6px,2px);clip-path:inset(20% 0 40% 0)}40%{transform:translate(5px,-3px);clip-path:inset(60% 0 5% 0)}60%{transform:translate(-3px,1px);clip-path:inset(0 0 70% 0)}80%{transform:translate(2px,0);clip-path:inset(35% 0 30% 0)}100%{transform:translate(0);clip-path:inset(0)}}
+
+/* flash al soltar la carga */
+.flash{position:fixed;inset:0;z-index:60;pointer-events:none;background:radial-gradient(circle at var(--fx,50%) var(--fy,50%),rgba(92,255,207,.35),transparent 60%);opacity:0}
+
+@media (max-width:820px){.hold-hint{font-size:11px;bottom:70px}}
+@media (prefers-reduced-motion:reduce){.hold-hint__ring{animation:none}}
